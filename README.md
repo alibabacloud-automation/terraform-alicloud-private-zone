@@ -30,7 +30,7 @@ You can use this in your terraform template with the following steps.
         module "pvtz" {
           source              = "terraform-alicloud-modules/pvtz/alicloud"
           domain_name           = "pvtz.com"
-          vpc_id_list           = ["vpc-2zeidcz010hc6z2yc2pph","vpc-2zedlzeq6m4zr1jkowi94"]
+          vpc_id_list           = ["${module.vpc.vpc_id}"]
           record_list           = [
             {
               name          = "www"
@@ -56,6 +56,13 @@ You can use this in your terraform template with the following steps.
           ]
         }
 
+        module "vpc" {
+          source              = "alibaba/vpc/alicloud"
+          vpc_name            = "testVpc"
+          vpc_cidr            = "192.168.0.0/16"
+          vpc_description         = "pvtz test vpc"
+        }
+
 2. Setting values for the following variables through environment variables:
 
     - ALICLOUD_ACCESS_KEY
@@ -69,6 +76,7 @@ You can use this in your terraform template with the following steps.
 | domain_name   | domain name which you want to add                                   | list   | -  | yes |
 | record_list   | record list                                                         | list   | -  | yes |
 | vpc_id_list   | the vpc id list what you want to attached                           | list   | -  | no  |
+| vpc_id_list_count| vpc id list length | string | - | yes |
 
 
 ## Outputs
