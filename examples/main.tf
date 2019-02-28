@@ -1,7 +1,8 @@
 module "pvtz" {
-  source      = "../"
-  domain_name = "pvtz.com"
-  vpc_id_list = ["${module.vpc.vpc_id}"]
+  source          = "../"
+  domain_name     = "pvtz.com"
+  vpc_id_list     = ["${module.vpc.vpc_id}"]
+  need_attachment = true
 
   record_list = [
     {
@@ -29,8 +30,8 @@ module "pvtz" {
 }
 
 module "vpc" {
-  source              = "alibaba/vpc/alicloud"
-  vpc_name            = "pvtz_test"
-  vpc_cidr            = "192.168.0.0/16"
-  vpc_description         = "pvtz test vpc"
+  source          = "alibaba/vpc/alicloud"
+  vpc_name        = "pvtz_test"
+  vpc_cidr        = "192.168.0.0/16"
+  vpc_description = "pvtz test vpc"
 }

@@ -11,8 +11,8 @@ module "records" {
 }
 
 module "attachment" {
-  source            = "./modules/attachment"
-  zone_id           = "${module.domain.this_id}"
-  vpc_id_list       = "${var.vpc_id_list}"
-  vpc_id_list_count = "${var.vpc_id_list_count}"
+  source          = "./modules/attachment"
+  zone_id         = "${module.domain.this_id}"
+  vpc_id_list     = "${var.vpc_id_list}"
+  need_attachment = "${var.need_attachment}"
 }

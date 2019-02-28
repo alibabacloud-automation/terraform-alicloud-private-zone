@@ -31,6 +31,7 @@ You can use this in your terraform template with the following steps.
           source              = "terraform-alicloud-modules/pvtz/alicloud"
           domain_name           = "pvtz.com"
           vpc_id_list           = ["${module.vpc.vpc_id}"]
+          need_attachment         = true
           record_list           = [
             {
               name          = "www"
@@ -73,10 +74,10 @@ You can use this in your terraform template with the following steps.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| domain_name   | domain name which you want to add                                   | list   | -  | yes |
-| record_list   | record list                                                         | list   | -  | yes |
-| vpc_id_list   | the vpc id list what you want to attached                           | list   | -  | no  |
-| vpc_id_list_count| vpc id list length | string | - | yes |
+| domain_name     | domain name which you want to add                                   | list   | -     | yes |
+| record_list     | record list                                                         | list   | -     | yes |
+| vpc_id_list     | the vpc id list what you want to attached                           | list   | -     | no  |
+| need_attachment | attachment switch                                                   | bool   | false | no  |
 
 
 ## Outputs

@@ -10,7 +10,7 @@ Creates PVT Zone attachment. Accept list.
 |------|-------------|:----:|:-----:|:-----:|
 | zone_id | zone id | list | - | yes |
 | vpc_id_list | vpc id list | string | - | yes |
-| vpc_id_list_count| vpc id list length | string | - | yes |
+| need_attachment| attachment switch | bool | false | yes |
 
 
 ## Outputs

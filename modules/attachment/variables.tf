@@ -8,6 +8,7 @@ variable "vpc_id_list" {
   default     = []
 }
 
-variable "vpc_id_list_count" {
+variable "need_attachment" {
   description = "vpc id list length"
+  default     = false
 }
