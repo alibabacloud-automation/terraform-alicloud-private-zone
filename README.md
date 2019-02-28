@@ -12,9 +12,10 @@ These types of resources are supported:
 
 Root module calls these modules which can also be used separately to create independent resources:
 
-* [attachment](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/modules/attachment) - creates attachments
-* [zone](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/modules/domain) - creates zones
+* [attachment](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/modules/attachment) - attach zone id and vpc id
+* [zone](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/modules/domain) - creates zone
 * [record](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/modules/record) - creates records
+- record_list means multiple record
 
 
 `NOTE`:
