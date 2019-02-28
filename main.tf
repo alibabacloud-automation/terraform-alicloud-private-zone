@@ -1,15 +1,18 @@
 module "domain" {
-  source      = "./modules/domain"
-  name        = "${var.domain_names}"
+    source                                  = "./modules/domain"
+    domain_list                             = ["${var.domain_name}"]
+    domain_count                            = "${var.domain_name == "" ? 0 : 1 }"
 }
 
-module "record" {
-  source      = "./modules/record"
-  ttl         = "${var.record_ttl}"
-  type        = "${var.record_type}"
-  name        = "${var.record_name}"
-  a_value     = "${var.a_value}"
-  a_count     = "${var.a_count}"
-  mx_priority = "${var.mx_priority}"
-  domain_id   = "${module.domain.id}"
+module "records" {
+    source                                  = "./modules/record"
+    zone_id                                 = "${module.domain.this_id}"
+    record_list                             = "${var.record_list}"
 }
+
+module "attachment" {
+    source                                  = "./modules/attachment"
+    zone_id                                 = "${module.domain.this_id}"
+    vpc_id_list                             = "${var.vpc_id_list}"
+}
+
