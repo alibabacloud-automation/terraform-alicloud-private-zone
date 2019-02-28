@@ -8,8 +8,9 @@ Creates PVT Zone attachment. Accept list.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| zone_id | Domain name list | list | - | yes |
-| vpc_id_list | Domain name list length | string | - | yes |
+| zone_id | zone id | list | - | yes |
+| vpc_id_list | vpc id list | string | - | yes |
+| vpc_id_list_count| vpc id list length | string | - | yes |
 
 
 ## Outputs
