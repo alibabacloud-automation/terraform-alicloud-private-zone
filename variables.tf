@@ -13,6 +13,6 @@ variable "vpc_id_list" {
 }
 
 variable "need_attachment" {
-  description = "vpc id list length"
+  description = "attach switch"
   default     = false
 }
