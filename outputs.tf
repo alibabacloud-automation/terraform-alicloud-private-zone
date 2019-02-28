@@ -1,19 +1,7 @@
-output "domain_id" {
-  value = "${module.domain.id}"
+output "this_domain_name" {
+	value 							= "${module.domain.this_name}"
 }
 
-output "record_cname" {
-	value = "${module.record.record_cname}"
-}
-
-output "record_a" {
-	value = "${module.record.record_a}"
-}
-
-output "record_aaaa" {
-	value = "${module.record.record_aaaa}"
-}
-
-output "record_mx" {
-	value = "${module.record.record_mx}"
+output "this_records" {
+	value 							= "${module.records.this_records}"
 }
