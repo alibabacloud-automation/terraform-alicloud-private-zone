@@ -29,7 +29,7 @@ You can use this in your terraform template with the following steps.
 
 
         module "pvtz" {
-          source              = "terraform-alicloud-modules/pvtz/alicloud"
+          source              = "terraform-alicloud-modules/private-zone/alicloud"
           domain_name           = "pvtz.com"
           vpc_id_list           = ["${module.vpc.vpc_id}"]
           need_attachment         = true
