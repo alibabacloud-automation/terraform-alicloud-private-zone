@@ -4,7 +4,7 @@ variable "zone_id" {
 
 variable "vpc_id_list" {
   description = "vpc id list"
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
@@ -12,3 +12,4 @@ variable "need_attachment" {
   description = "attach switch"
   default     = false
 }
+
