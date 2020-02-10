@@ -1,26 +1,23 @@
-Terraform module which create Private Zone on Alibaba Cloud.  
-terraform-alicloud-private-zone
--------------------------------
+terraform-alicloud-private-zone 
+===============================
 
-English | [简体中文](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/blob/master/README-CN.md)
+Terraform模块用于在阿里云上创建 [Private Zone](https://help.aliyun.com/document_detail/64611.html)，同时您可以为 Zone 添加 records 并关联 VPC。
 
-Terraform module which creates [Private Zone](https://help.aliyun.com/document_detail/64611.html) resources on Alibaba Cloud, add records and attach VPC. 
-
-These types of resources are supported:
+支持以下类型的资源：
 
 * [PVTZ Zones](https://www.terraform.io/docs/providers/alicloud/r/pvtz_zone.html)
 * [PVTZ Records](https://www.terraform.io/docs/providers/alicloud/r/pvtz_zone_record.html)
 * [PVTZ Attachment](https://www.terraform.io/docs/providers/alicloud/r/pvtz_zone_attachment.html)
 
-## Terraform versions
+## Terraform 版本
 
-The Module requires Terraform 0.12 and Terraform Provider AliCloud 1.62.1+.
+本 Module 要求使用 Terraform 0.12 和 阿里云 Provider 1.62.1+。
 
-## Usage
+## 用法
 
-### Create a Private Zone.
+### 创建一个新的 Private Zone
 
-Create a Private Zone without any record and VPC.
+创建一个未添加 record，未关联 VPC 的 Private Zone。
 
 ```hcl
 module "pvtz" {
@@ -29,7 +26,7 @@ module "pvtz" {
 }
 ``` 
 
-Create a Private Zone and add records.
+创建一个 Private Zone 并添加 records。 
 
 ```hcl
 module "pvtz" {
@@ -54,7 +51,7 @@ module "pvtz" {
 }
 ``` 
 
-Create a Private Zone, add records and attach VPC.
+创建一个 Private Zone，添加 records 并关联 VPC。 
 
 ```hcl
 module "pvtz" {
@@ -80,20 +77,19 @@ module "pvtz" {
 }
 ``` 
 
-## Examples
+## 示例
 
-* [complete example](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/examples/complete)
+* [Private-zone 完整示例](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/examples/complete)
 
-
-Authors
+作者
 -------
-Created and maintained by Zhou qilin(z17810666992@163.com), He Guimin(@xiaozhu36, heguimin36@163.com).
+Created and maintained by Zhou qilin(z17810666992@163.com), He Guimin(@xiaozhu36, heguimin36@163.com)
 
-License
+许可
 ----
 Apache 2 Licensed. See LICENSE for full details.
 
-Reference
+参考
 ---------
 * [Terraform-Provider-Alicloud Github](https://github.com/terraform-providers/terraform-provider-alicloud)
 * [Terraform-Provider-Alicloud Release](https://releases.hashicorp.com/terraform-provider-alicloud/)
