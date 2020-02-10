@@ -1,4 +1,10 @@
-## 1.2.0 (Unreleased)
+## 1.3.0 (Unreleased)
+## 1.2.0 (February 10, 2020)
+
+IMPROVEMENTS:
+
+- improve private-zone module [GH-3]( https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/pull/3)
+
 ## 1.1.0 (Mar 6, 2019)
 
 IMPROVEMENTS:
