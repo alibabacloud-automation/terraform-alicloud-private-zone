@@ -34,14 +34,14 @@ module "pvtz" {
   zone_name   = "pvtz.com"
   records = [
     {
-      name     = "aaa"
+      rr       = "aaa"
       type     = "A"
       ttl      = 600
       value    = "223.5.5.5"
       priority = 1
     },
     {
-      name     = "bbb"
+      rr       = "bbb"
       type     = "MX"
       ttl      = 600
       value    = "mx.aliyun.com"
@@ -60,14 +60,14 @@ module "pvtz" {
   vpc_ids     = ["vpc-uf61gzxodh2w60l9n****"]
   records = [
     {
-      name     = "aaa"
+      rr       = "aaa"
       type     = "A"
       ttl      = 600
       value    = "223.5.5.5"
       priority = 1
     },
     {
-      name     = "bbb"
+      rr       = "bbb"
       type     = "MX"
       ttl      = 600
       value    = "mx.aliyun.com"

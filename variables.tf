@@ -59,7 +59,7 @@ variable "add_records" {
 
 
 variable "records" {
-  description = "PVT Zone record list.Each item can contains keys: 'resource_record'(The resource record of the Private Zone Record.),'type'(The type of the Private Zone Record. Valid values: A, CNAME, TXT, MX, PTR.),'value'(The value of the Private Zone Record),'priority'(The priority of the Private Zone Record. At present, only can 'MX' record support it. Valid values: [1-50]. Default to 1.),'ttl'(The ttl of the Private Zone Record)."
+  description = "PVT Zone record list.Each item can contains keys: 'rr'(The resource record of the Private Zone Record. 'name' has been deprecated from 1.3.0, and use 'rr' instead.),'type'(The type of the Private Zone Record. Valid values: A, CNAME, TXT, MX, PTR. Default to A.),'value'(The value of the Private Zone Record),'priority'(The priority of the Private Zone Record. At present, only can 'MX' record support it. Valid values: [1-50]. Default to 1.),'ttl'(The ttl of the Private Zone Record. Default to 60.)."
   type        = list(map(string))
   default     = []
 }
@@ -93,13 +93,13 @@ variable "lang" {
 
 # Deprecated variables
 variable "record_list" {
-  description = "(Deprecated) It has been deprecated from 1.2.0, and use `records` instead."
+  description = "(Deprecated) It has been deprecated from 1.2.0, and use 'records' instead."
   type        = list(map(string))
   default     = []
 }
 
 variable "vpc_id_list" {
-  description = "(Deprecated) It has been deprecated from 1.2.0, and use `vpc_ids` instead."
+  description = "(Deprecated) It has been deprecated from 1.2.0, and use 'vpc_ids' instead."
   type        = list(string)
   default     = []
 }

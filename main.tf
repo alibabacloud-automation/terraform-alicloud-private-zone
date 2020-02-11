@@ -38,11 +38,11 @@ resource "alicloud_pvtz_zone_record" "this" {
   count = local.existing_zone && var.add_records ? length(local.records) : 0
 
   zone_id         = local.zone_id
-  resource_record = lookup(local.records[count.index], "name")
-  type            = lookup(local.records[count.index], "type")
-  ttl             = lookup(local.records[count.index], "ttl")
+  resource_record = lookup(local.records[count.index], "rr", "") != "" ? lookup(local.records[count.index], "rr") : lookup(local.records[count.index], "name")
+  type            = lookup(local.records[count.index], "type", "A")
+  ttl             = lookup(local.records[count.index], "ttl", 60)
   value           = lookup(local.records[count.index], "value")
-  priority        = lookup(local.records[count.index], "priority")
+  priority        = lookup(local.records[count.index], "priority", 1)
 }
 
 ################################
