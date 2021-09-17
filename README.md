@@ -87,7 +87,7 @@ module "pvtz" {
 
 Authors
 -------
-Created and maintained by Zhou qilin(z17810666992@163.com), He Guimin(@xiaozhu36, heguimin36@163.com).
+Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
 
 License
 ----
