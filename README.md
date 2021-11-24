@@ -80,6 +80,7 @@ module "pvtz" {
 
 * [complete example](https://github.com/terraform-alicloud-modules/terraform-alicloud-private-zone/tree/master/examples/complete)
 
+## Notes
 From the version v1.4.0, the module has removed the following `provider` setting:
 
 ```hcl
