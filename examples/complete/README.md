@@ -1,9 +1,8 @@
-# Private Zone example
+# Complete
 
 Configuration in this directory creates Private Zone, add records and attach VPC.
 
-
-# Usage
+## Usage
 
 To run this example you need to execute:
 
@@ -13,14 +12,21 @@ $ terraform plan
 $ terraform apply
 ```
 
-Run `terraform destroy` when you don't need these resources.
+Note that this example may create resources which cost money. Run `terraform destroy` when you don't need these resources.
+
+This example provides the tf variables file in the folder `tfvars`. If you want to create or update this example,
+you can run this example as the following commands:
+```bash
+$ terraform plan -var-file=tfvars/01-update.tfvars
+$ terraform apply -var-file=tfvars/01-update.tfvars
+```
+
+Also, you can add more variables files in the folder `tfvars`.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
 
-## Outputs
-| Name | Description |
-|------|-------------|
-| this_private_zone_records | The name of Private Zone |
-| this_private_zone_name | List of the Private Zone records |
-
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.62.1 |

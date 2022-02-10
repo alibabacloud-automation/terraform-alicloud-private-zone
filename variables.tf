@@ -57,7 +57,6 @@ variable "add_records" {
   default     = true
 }
 
-
 variable "records" {
   description = "PVT Zone record list.Each item can contains keys: 'rr'(The resource record of the Private Zone Record. 'name' has been deprecated from 1.3.0, and use 'rr' instead.),'type'(The type of the Private Zone Record. Valid values: A, CNAME, TXT, MX, PTR. Default to A.),'value'(The value of the Private Zone Record),'priority'(The priority of the Private Zone Record. At present, only can 'MX' record support it. Valid values: [1-50]. Default to 1.),'ttl'(The ttl of the Private Zone Record. Default to 60.)."
   type        = list(map(string))
@@ -67,26 +66,26 @@ variable "records" {
 ################################
 # pvtz_zone_attachment
 ################################
-variable "vpc_ids" {
-  description = "The id List of the VPC with the same region, for example:['vpc-1','vpc-2']."
-  type        = list(string)
-  default     = []
-}
-
 variable "attach_vpc" {
   description = "Whether to associate VPC to Private zone."
   type        = bool
   default     = true
 }
 
-variable "user_client_ip" {
-  description = "The user custom IP address"
-  type        = string
-  default     = ""
+variable "vpc_ids" {
+  description = "The id List of the VPC with the same region, for example:['vpc-1','vpc-2']."
+  type        = list(string)
+  default     = []
 }
 
 variable "lang" {
   description = "The language of code. Valid values: 'zh', 'en', 'jp."
+  type        = string
+  default     = "zh"
+}
+
+variable "user_client_ip" {
+  description = "The user custom IP address"
   type        = string
   default     = ""
 }
@@ -103,5 +102,3 @@ variable "vpc_id_list" {
   type        = list(string)
   default     = []
 }
-
-
