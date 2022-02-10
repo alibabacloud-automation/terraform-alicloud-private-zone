@@ -5,7 +5,7 @@ data "alicloud_pvtz_zones" "this" {
 resource "random_uuid" "this" {}
 
 locals {
-  create        = var.existing_zone_name != "" ? false : var.create
+  create        = var.create
   existing_zone = var.existing_zone_name != "" || var.create ? true : false
   zone_name     = var.zone_name != "" ? var.zone_name : substr("terraform-zone-${replace(random_uuid.this.result, "-", "")}", 0, 32)
   zone_id       = var.existing_zone_name != "" ? data.alicloud_pvtz_zones.this.zones[0].id : concat(alicloud_pvtz_zone.this.*.id, [""])[0]
@@ -19,29 +19,29 @@ locals {
 resource "alicloud_pvtz_zone" "this" {
   count = local.create ? 1 : 0
 
-  name   = local.zone_name
-  remark = var.remark != "" ? var.remark : null
+  zone_name = local.zone_name
+  remark    = var.remark != "" ? var.remark : null
 }
 
 ################################
 # pvtz_zone_record
 ################################
 resource "alicloud_pvtz_zone_record" "this" {
-  count = local.existing_zone && var.add_records ? length(local.records) : 0
+  count = var.add_records ? length(local.records) : 0
 
-  zone_id         = local.zone_id
-  resource_record = lookup(local.records[count.index], "rr", "") != "" ? lookup(local.records[count.index], "rr") : lookup(local.records[count.index], "name")
-  type            = lookup(local.records[count.index], "type", "A")
-  ttl             = lookup(local.records[count.index], "ttl", 60)
-  value           = lookup(local.records[count.index], "value")
-  priority        = lookup(local.records[count.index], "priority", 1)
+  zone_id  = local.zone_id
+  rr       = lookup(local.records[count.index], "rr", "www")
+  type     = lookup(local.records[count.index], "type", "A")
+  ttl      = lookup(local.records[count.index], "ttl", 60)
+  value    = lookup(local.records[count.index], "value")
+  priority = lookup(local.records[count.index], "priority", 1)
 }
 
 ################################
 # pvtz_zone_attachment
 ################################
 resource "alicloud_pvtz_zone_attachment" "this" {
-  count = local.existing_zone && var.attach_vpc ? length(local.vpc_ids) : 0
+  count = var.attach_vpc ? length(local.vpc_ids) : 0
 
   zone_id        = local.zone_id
   vpc_ids        = local.vpc_ids

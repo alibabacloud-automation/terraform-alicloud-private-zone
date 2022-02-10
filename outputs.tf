@@ -1,6 +1,6 @@
 output "this_private_zone_records" {
   description = "List of the Private Zone records"
-  value       = formatlist("%v   %64v : %10v   %5v   %v", alicloud_pvtz_zone_record.this.*.id, alicloud_pvtz_zone_record.this.*.resource_record, alicloud_pvtz_zone_record.this.*.type, alicloud_pvtz_zone_record.this.*.ttl, alicloud_pvtz_zone_record.this.*.value)
+  value       = formatlist("%v   %64v : %10v   %5v   %v", concat(alicloud_pvtz_zone_record.this.*.id, [""])[0], concat(alicloud_pvtz_zone_record.this.*.resource_record, [""])[0], concat(alicloud_pvtz_zone_record.this.*.type, [""])[0], concat(alicloud_pvtz_zone_record.this.*.ttl, [""])[0], concat(alicloud_pvtz_zone_record.this.*.value, [""])[0])
 }
 
 output "this_private_zone_name" {
