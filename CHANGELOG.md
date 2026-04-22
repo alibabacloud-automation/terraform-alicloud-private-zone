@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/compare/v1.4.0...v2.0.0) (2026-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* add provider version constraint for aliyun/alicloud
+
+### Features
+
+* add provider version constraint for aliyun/alicloud ([8514574](https://github.com/alibabacloud-automation/terraform-alicloud-private-zone/commit/8514574ca3c38a6c5f0fdd339857f10f2f6f9c66))
+
 ## 1.5.0 (Unreleased)
 ## 1.4.0 (December 10, 2021)
 
